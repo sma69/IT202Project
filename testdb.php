@@ -6,6 +6,7 @@ $db = new mysqli("localhost","root","speeding","it202");
 	In here we can access the DB if it worked
 */
 
+
 if ($db->connect_errno > 0 )
 {
    echo __FILE__.__LINE__." ERROR: ".$db->connect_error.PHP_EOL;

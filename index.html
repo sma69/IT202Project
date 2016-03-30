@@ -1,10 +1,20 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-Welcome to 202 Example page
+<meta char-set="utf-8">
+Welcome to Rock Paper Scissor Site
 </head>
 <body>
-<H1>This is my title</H1>
-Here is some text<p>
-Here is some more text<p>
+<H1>Rock Paper Scissor</H1>
+Login to play<p>
+Register if you do not have an account<p>
+<form action="rpc.php" method="post" >
+<p>username: <input type="text" name="username" /></p>
+<p>password: <input type ="password" name="password" /></p>
+<input type="submit" name="request" value="login"/>
+<input type="submit" name="request" value="register"/>
+</form>
+
+<a href = "registration.html">Make Account Here</a>
 </body>
 </html>
