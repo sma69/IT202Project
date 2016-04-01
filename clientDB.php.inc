@@ -91,6 +91,45 @@ class clientDB
     }
     return array("success"=>true);
   }
+
+  public function addNewPlayer($name)
+  {
+    if ($this->getClientId($name) != 0)
+    {
+      $this->logger->log("user $name already exists!!!!!");
+      $response = array(
+      "message"=>"user $name already exists!",
+      "success"=>false
+      );
+      return $response;
+    }
+    $now = date("Y-m-d h:i:s",time());
+    $name = $this->db->real_escape_string($name);
+    $winNumber = 0;
+    $addQuery = "insert into players (clientName, wins, lastLogin) values ('$name','$winNumber','$now');";
+    $results = $this->db->query($addQuery);
+    if (!$results)
+    {
+      $this->logger->log("error: ".$this->db->error);
+    }
+    return array("success"=>true);
+  }
+    public function addNewMatch($name, $decision)
+  {
+
+    $now = date("Y-m-d h:i:s",time());
+    $name = $this->db->real_escape_string($name);
+    $decision = $this->db->real_escape_string($decision);
+    $player2Name = 'CPU';
+    $addQuery = "insert into matches (playerName, player2Name, result, gameEnd) values ('$name','$player2Name','$decision','$now');";
+    $results = $this->db->query($addQuery);
+    if (!$results)
+    {
+      $this->logger->log("error: ".$this->db->error);
+    }
+    return array("success"=>true);
+  }
+  
 }
 // at this point db is connected
 ?>

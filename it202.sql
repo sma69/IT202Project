@@ -26,8 +26,8 @@ create table matches
 playerId INT(11) primary key auto_increment,
 playerName varchar(32),
 player2Name varchar(32),
-result INT(11),
-gameEnd datetime,
+result varchar(32),
+gameEnd datetime
 );
  );
  

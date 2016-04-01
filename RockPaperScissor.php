@@ -5,7 +5,8 @@ require_once("RockPaperScissor.php.inc");
 
 
 
-   $db = new ClientDB('connect.ini');
+
+   $db = new clientDB('connect.ini');
    $rps = new RockPaperScissor();
    $rock = "rock";
    $paper = "paper";
@@ -16,6 +17,7 @@ require_once("RockPaperScissor.php.inc");
 
    $request = $_POST['request'];
    $ans1 = $_POST['hand'];
+   $pName = $_POST['playerName'];
 
    
 
@@ -28,6 +30,8 @@ switch($request)
          $key = array_rand($hands);
          $ans2 = $hands[$key];
          $rps->beats($ans1,$ans2);
+         $db ->addNewPlayer($pName);
+         $db ->addNewMatch($pName,$db ->addNewPlayer($pName));
 
       }
       case 'challenge':

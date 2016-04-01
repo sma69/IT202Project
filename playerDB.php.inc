@@ -35,14 +35,14 @@ class playerDB
       $this->logger->log("error with results: ".$this->db->error);
       return 0;
     }
-    $ = $results->fetch_assoc();
+    $player = $results->fetch_assoc();
     if (isset($player['playerId']))
     {
     return $player['playerId'];
     }
     return 0;
    }
-  public function addNewPlayer($name,$password)
+  public function addNewPlayer($name)
   {
     if ($this->getClientId($name) != 0)
     {
@@ -55,8 +55,8 @@ class playerDB
     }
     $now = date("Y-m-d h:i:s",time());
     $name = $this->db->real_escape_string($name);
-    $password = $this->saltPassword($password);
-    $addQuery = "insert into players (clientName, wins,lastLogin) values ('$name','$wins,'$now');";
+    $wins = 'who cares?';
+    $addQuery = "insert into players (clientName, wins,lastLogin) values ('$name', '$wins' ,'$now');";
     $results = $this->db->query($addQuery);
     if (!$results)
     {
@@ -65,5 +65,5 @@ class playerDB
     return array("success"=>true);
   }
 }
-
+//db connected
 ?>
