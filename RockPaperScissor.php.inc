@@ -32,7 +32,7 @@ class RockPaperScissor
 	    $answer = "Tie!<p>";
 	}
 	
-	if (($answer1 == $paper) && ($answer2 == $scissor))
+	if (($answer1 == $paper) && ($answer2 == $rock))
 	{
 	   $answer = $p1win."<p>";
 	}
