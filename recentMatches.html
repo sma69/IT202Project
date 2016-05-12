@@ -1,0 +1,52 @@
+<html lang="en">
+  <head>
+  <!-- bootstrap -->
+  <link rel="stylesheet" type="text/css" href= "rpsStyle.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Navigation Bar -->
+    
+   </head> 
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Rock Paper Scissors</title>
+
+ 
+ 
+ 
+<body>
+<ul>
+  <li><a href="index.html">Login</a></li>
+  <li><a href="registration.html">Register</a></li>
+  <li><a class="active" href="recentMatches.html">Match History</a></li>
+  <li><a href="rpsGame.html">Play Game</a></li>
+</ul>
+<H1>Match History</H1>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+require_once("clientDB.php.inc");
+$db = new clientDB('connect.ini');
+$sql = "SELECT playerID, playerName, player2Name, result FROM matches";
+$result = mysqli_query($db, $sql);
+
+if ($result->num_rows > 0) {
+     // output data of each row
+     while($row = $result->fetch_assoc()) {
+         echo "<br> id: ". $row["playerID"]. " - Player 1Name: ". $row["playerName"]. " - Player 2 Name " . $row["player2Name"] . " -Result " . $row["result"] ."-Time". $row["gameEnd"]. "<br>";
+     }
+} else {
+     echo "0 results";
+}
+
+$conn->close();
+?>  
+
+</body>
+</html>
+</body>
+</html>

@@ -16,7 +16,7 @@ require_once("RockPaperScissor.php.inc");
    $ans2;
 
    $request = $_POST['request'];
-   $ans1 = $_POST['hand'];
+   $ans1 = 
    $pName = $_POST['playerName'];
 
    
@@ -24,6 +24,18 @@ require_once("RockPaperScissor.php.inc");
 
 switch($request)
 {
+      case 'rock':
+      {
+      $ans1 = $rock;
+      }
+      case 'paper':
+      {
+      $ans1 = $paper;
+      }
+      case 'scissor':
+      {
+      $ans1 = $scissor;
+      }
       case 'move':
       {
          
@@ -37,6 +49,7 @@ switch($request)
       case 'challenge':
       {
       }
+
 }	      
 
 ?>
